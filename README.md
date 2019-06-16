@@ -1,7 +1,7 @@
 # Imagin-a-burger
 Creative burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!)
 
-##App Setup
+## App Setup
 Create a GitHub repo called burger and clone it to your computer.
 
 Make a package.json file by running npm init from the command line.
