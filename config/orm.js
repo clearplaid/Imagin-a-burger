@@ -5,7 +5,7 @@ var orm = {
         var queryString = "SELECT * FROM " + tableInput + ";";
 //need to complete query string parameters 
         console.log(queryString);
-        
+
         connection.query(queryString, function(err, result){
             if (err) throw err;
 
@@ -39,4 +39,5 @@ var orm = {
     }
 };
 
+// Export the orm object for the model (burger.js)
 module.exports = orm;
