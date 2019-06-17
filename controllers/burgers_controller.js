@@ -7,25 +7,34 @@ var burger = require("../models/burger.js");
 
 // routes and logic within those routes where required
 router.get("/", function(req, res) {
+    
+    console.log("Req: " + JSON.stringify(req.params));
+   
     burger.selectAll(function(data) {
+        console.log("data: " + JSON.stringify(data));
         var handleBarsObj = {
             burger: data
         };
-        console.log(handleBarsObj);
+        
+        console.log("router hb object: " + JSON.stringify(handleBarsObj));
+        
         res.render("index", handleBarsObj);
     });
 });
 
 router.post("/api/burgers", function(req, res) {
     burger.createOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
+        console.log("router Create Result: " + JSON.stringify(result));
+
         res.json({ burger_id: result.insertId });
     });
 });
 
-router.put("api/burgers/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
+    console.log("router params: " + JSON.stringify(req.params));
     var condition = "burger_id = " + req.params.id;
 
-    console.log("condition: " + condition);
+    console.log("router condition: " + condition);
 
     burger.updateOne({
         devoured: req.body.devoured
