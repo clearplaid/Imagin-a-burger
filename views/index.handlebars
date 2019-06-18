@@ -1,16 +1,60 @@
 {{!-- top section --}}
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-text text-center container-fluid">
-    <h1 class="display-4 text-center">Burgers!</h1>
-    <br>
-    <h1 class="text-center">All the Glorious Burgers!</h1>
+<nav class="navbar border border-dark rounded-lg">
+  <span class="navbar-text container-fluid">
+    <p><h1 class="display-4 text-center main">Imagin-A-Burger!</h1></p>
   </span>
 </nav>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="container-fluid middle">
+  <div class="row justify-content-center">
+      {{!-- left section --}}
+    <div class="col-sm justify-content-center outside">  
+        <div id="toEat">
+            <h2 class="title text-center">Glorious Burgers</h2>
+            <hr>
+            <ul>
+            {{#each burger}}
+                {{#unless this.devoured}}
+                    <li class="update-burger list-group-item list-group-item-warning">
+                        
+                        {{this.burger_id}}. {{this.burger_name}}
+                        <button type="submit" class="burgerToEat btn btn-warning btn-sm" data-id="{{this.burger_id}}" data-name="{{this.burger_name}}" data-devoured="{{devoured}}">Devour?!?</button>        
+                      
+                    </li>
+                {{/unless}}
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+{{!-- middle section --}}
+    <div class="col-sm justify-content-center ">
+        <img src="/assets/img/burger.gif" alt="Burger" class="border border-dark rounded-lg" height="100%" width="100%"> 
+    </div>
+
+{{!-- right section --}}
+    <div class="col-sm justify-content-center outside">
+        <div id="devoured">
+            <h2 class="title text-center">Devoured Burgers!</h2>
+            <hr>
+            <ul>
+            {{#each burger}}
+                {{#if this.devoured}}
+                <li class="list-group-item list-group-item-warning">
+                    {{this.burger_id}}. {{this.burger_name}}
+                </li>
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+{{!-- bottom section --}}
+<div class="jumbotron jumbotron-fluid border border-dark rounded-lg">
   <div id="addBurger" class="container">
     
-        <h2>Add a Burger! Any Burger that your Heart Desires!</h2>
+        <h2 class="text-center">Add a Burger!</h2>
 
         <form class="create-burger" action="/burgers" method="POST">
 
@@ -24,53 +68,11 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row justify-content-center">
-      {{!-- left section --}}
-    <div class="col-sm justify-content-center">  
-        <div id="toEat">
-            <h2>Burgers,</h2>
-            <br>
-            <h2>To Eat or Not to Eat?</h2>
-
-            <ul>
-            {{#each burger}}
-                {{#unless this.devoured}}
-                    <li>
-                        <div class="update-burger">
-                        {{this.burger_id}}. {{this.burger_name}}
-                        <button type="submit" class="burgerToEat" data-id="{{this.burger_id}}" data-name="{{this.burger_name}}" data-devoured="{{devoured}}">Devour It!</button>        
-                        </div>
-                    </li>
-                {{/unless}}
-            {{/each}}
-            </ul>
-        </div>
+{{!-- footer --}}
+<footer class="border border-dark rounded-lg">
+    <div class="container">
+        Copyright&copy;
+                2019 Clearplaid Creations
     </div>
-{{!-- middle section --}}
-    <div class="col-sm justify-content-center">
-        <img src="/assets/img/burger.gif" alt="Burger" height="100%" width="100%"> 
-    </div>
-
-{{!-- right section --}}
-    <div class="col-sm justify-content-center">
-        <div id="devoured">
-            <h2>Devoured Burgers!</h2>
-            <br>
-            <h2>Finger-licking Good!</h2>
-            <ul>
-            {{#each burger}}
-                {{#if this.devoured}}
-                <li>
-                    {{this.burger_id}}. {{this.burger_name}}
-                </li>
-                {{/if}}
-            {{/each}}
-            </ul>
-        </div>
-    </div>
-  </div>
-</div>
-
-<footer></footer>
+</footer>
 
