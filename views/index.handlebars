@@ -1,47 +1,76 @@
-<h1>Burgers! All the Burgers!</h1>
+{{!-- top section --}}
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-text text-center container-fluid">
+    <h1 class="display-4 text-center">Burgers!</h1>
+    <br>
+    <h1 class="text-center">All the Glorious Burgers!</h1>
+  </span>
+</nav>
 
+<div class="jumbotron jumbotron-fluid">
+  <div id="addBurger" class="container">
+    
+        <h2>Add a Burger! Any Burger that your Heart Desires!</h2>
 
-<div id="toEat">
-    <h2>Burgers, to Eat or Not to Eat?</h2>
+        <form class="create-burger" action="/burgers" method="POST">
 
-    <ul>
-    {{#each burger}}
-        {{#unless this.devoured}}
-            <li>
-                <div class="update-burger">
-                {{this.burger_id}}. {{this.burger_name}}
-                <button type="submit" class="burgerToEat" data-id="{{this.burger_id}}" data-name="{{this.burger_name}}" data-devoured="{{devoured}}">Devour It!</button>           
-                </div>
-            </li>
-        {{/unless}}
-    {{/each}}
-    </ul>
+            <div class="form-group">
+                <input type="text" id="burgerName" class="form-control" name="burgerName" placeholder="Super Delicious Burger Name Goes Here!">
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-block">Add Awesome Burger</button>
+        </form>
+    
+  </div>
 </div>
 
-<div id="devoured">
-    <h2>Devoured Burgers! Finger-licking Good!</h2>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+      {{!-- left section --}}
+    <div class="col-sm justify-content-center">  
+        <div id="toEat">
+            <h2>Burgers,</h2>
+            <br>
+            <h2>To Eat or Not to Eat?</h2>
 
-    <ul>
-    {{#each burger}}
-        {{#if this.devoured}}
-        <li>
-            {{this.burger_id}}. {{this.burger_name}}
-        </li>
-        {{/if}}
-    {{/each}}
-    </ul>
-</div>
-
-<div id="addBurger">
-    <h2>Add a Burger! Any Burger that your Heart Desires!</h2>
-
-    <form class="create-burger" action="/burgers" method="POST">
-
-        <div class="form-group">
-            <label for="burgerName">Burger Name:</label>
-            <input type="text" id="burgerName" name="burgerName" placeholder="Super Delicious Burger">
+            <ul>
+            {{#each burger}}
+                {{#unless this.devoured}}
+                    <li>
+                        <div class="update-burger">
+                        {{this.burger_id}}. {{this.burger_name}}
+                        <button type="submit" class="burgerToEat" data-id="{{this.burger_id}}" data-name="{{this.burger_name}}" data-devoured="{{devoured}}">Devour It!</button>        
+                        </div>
+                    </li>
+                {{/unless}}
+            {{/each}}
+            </ul>
         </div>
+    </div>
+{{!-- middle section --}}
+    <div class="col-sm justify-content-center">
+        <img src="/assets/img/burger.gif" alt="Burger" height="100%" width="100%"> 
+    </div>
 
-    <button type="submit">Add Awesome Burger</button>
-    </form>
+{{!-- right section --}}
+    <div class="col-sm justify-content-center">
+        <div id="devoured">
+            <h2>Devoured Burgers!</h2>
+            <br>
+            <h2>Finger-licking Good!</h2>
+            <ul>
+            {{#each burger}}
+                {{#if this.devoured}}
+                <li>
+                    {{this.burger_id}}. {{this.burger_name}}
+                </li>
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+  </div>
 </div>
+
+<footer></footer>
+
