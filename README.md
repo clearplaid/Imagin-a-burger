@@ -3,6 +3,8 @@ https://imagin-a-burger.herokuapp.com/
 
 Creative burger logger with MySQL, Node, Express, Handlebars and a homemade ORM
 
+<img src="https://github.com/clearplaid/Friend-or-Foe/blob/master/app/public/assets/images/cat-main.png" alt="cat main" width="400">
+
 ## App Setup
 Created a GitHub repo called burger and cloned it to computer.
 
@@ -92,39 +94,3 @@ Setup the index.handlebars to have the template that Handlebars can render onto.
 
 Created a button in index.handlebars that will submit the user input into the database.
 
-## Directory structure
-All the files and directories from the steps above look like the following structure:
-
-.
-├── config
-│   ├── connection.js
-│   └── orm.js
-│ 
-├── controllers
-│   └── burgers_controller.js
-│
-├── db
-│   ├── schema.sql
-│   └── seeds.sql
-│
-├── models
-│   └── burger.js
-│ 
-├── node_modules
-│ 
-├── package.json
-│
-├── public
-│   └── assets
-│       ├── css
-│       │   └── burger_style.css
-│       └── img
-│           └── burger.png
-│   
-│
-├── server.js
-│
-└── views
-    ├── index.handlebars
-    └── layouts
-        └── main.handlebars
