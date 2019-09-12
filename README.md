@@ -3,7 +3,7 @@ https://imagin-a-burger.herokuapp.com/
 
 Creative burger logger with MySQL, Node, Express, Handlebars and a homemade ORM
 
-<img src="https://github.com/clearplaid/Friend-or-Foe/blob/master/app/public/assets/images/cat-main.png" alt="cat main" width="400">
+<img src="https://github.com/clearplaid/Imagin-a-burger/blob/master/public/assets/img/burger-top.png" alt="burger top" width="400">
 
 ## App Setup
 Created a GitHub repo called burger and cloned it to computer.
